@@ -15,7 +15,9 @@ public class BotToken {
 		Class.forName("org.sqlite.JDBC");
 		String url = "jdbc:sqlite:database/idDB.db";
 		Connection conn = DriverManager.getConnection(url);
-		statement = conn.prepareStatement("select * from Code where ID=GRUPPE;");
+		
+		
+		statement = conn.prepareStatement("select * from Code where ID = 'GRUPPE';");
 		rs = statement.executeQuery();
 		
 		tokenUrl = rs.getString("String");
@@ -23,5 +25,5 @@ public class BotToken {
 		return conn;
 	}
 	
-	public static final String discordToken = tokenUrl;
+	public final static String discordToken = tokenUrl;
 }
